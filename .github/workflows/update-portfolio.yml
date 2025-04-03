@@ -1,32 +1,35 @@
 name: Update Portfolio Site
 
 on:
-  push:
-    branches:
-      - main  # Trigger on updates to the main branch; adjust if needed
-  release:
-    types: [published]  # Trigger on release publication
+    push:
+        branches:
+            - main
+    release:
+        types: [published]
 
 jobs:
-  update-portfolio:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+    update-portfolio:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
 
-      - name: Clone Portfolio Repo
-        run: |
-          git clone https://peterbenoit:${{ secrets.PAT_FOR_PORTFOLIO_REPO }}@github.com/peterbenoit/peterbenoit.github.io portfolio
-          cd portfolio
-          git config user.name "peterbenoit"
-          git config user.email "peterbenoit@gmail.com"
+            - name: Clone Portfolio Repo
+              run: |
+                  git clone https://peterbenoit:${{ secrets.PAT_FOR_PORTFOLIO_REPO }}@github.com/peterbenoit/peterbenoit.github.io portfolio
+                  cd portfolio
+                  git config user.name "peterbenoit"
+                  git config user.email "peterbenoit@gmail.com"
 
-      - name: Copy Updated Library
-        run: cp ./getViewport.js ./portfolio/js/getViewport.js	# change these
+            - name: Copy Updated Library Files
+              run: |
+                  cp ./getViewport.js ./portfolio/js/getViewport.js
+                  # If I create minified version in the future, uncomment:
+                  # cp ./getViewport.min.js ./portfolio/js/getViewport.min.js
 
-      - name: Commit and Push Changes
-        run: |
-          cd portfolio
-          git add .
-          git commit -m "Update getViewport in portfolio"
-          git push https://peterbenoit:${{ secrets.PAT_FOR_PORTFOLIO_REPO }}@github.com/peterbenoit/peterbenoit.github.io
+            - name: Commit and Push Changes
+              run: |
+                  cd portfolio
+                  git add .
+                  git commit -m "Update getViewport in portfolio"
+                  git push https://peterbenoit:${{ secrets.PAT_FOR_PORTFOLIO_REPO }}@github.com/peterbenoit/peterbenoit.github.io

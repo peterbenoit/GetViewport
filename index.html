@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-50">
+    <head>
+        <meta charset="UTF-8" />
+        <title>GetViewport - Lightweight Responsive Breakpoint Detection Library</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="A lightweight JavaScript utility for responsive breakpoint detection that dynamically injects CSS breakpoints and allows JavaScript to check the current viewport size."
+        />
+        <meta
+            name="keywords"
+            content="viewport, breakpoint, detection, responsive, javascript, library"
+        />
+        <meta name="author" content="Pete Benoit" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body>
+        <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+            <div class="container mx-auto px-6 py-16">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">GetViewport</h1>
+                    <p class="text-xl md:text-2xl mb-8">
+                        A lightweight, performant viewport detection library for modern web
+                        applications
+                    </p>
+                    <div class="space-x-4">
+                        <a
+                            href="https://github.com/peterbenoit/GetViewport"
+                            class="bg-white text-indigo-600 px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
+                            aria-label="View on GitHub"
+                        >
+                            GitHub
+                        </a>
+                        <a
+                            href="https://github.com/peterbenoit/GetViewport#readme"
+                            class="bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
+                            aria-label="View documentation"
+                        >
+                            Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Live Demo Section -->
+        <section class="py-8 bg-white border-b border-gray-200">
+            <div class="container mx-auto px-6">
+                <div class="max-w-md mx-auto bg-gray-50 p-4 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-medium text-center mb-3">Live Viewport Demo</h3>
+                    <div class="flex items-center justify-between mb-2">
+                        <div>Current breakpoint:</div>
+                        <div
+                            id="current-breakpoint"
+                            class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded"
+                        ></div>
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <div>Width:</div>
+                        <div
+                            id="viewport-width"
+                            class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded"
+                        ></div>
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <div>Type:</div>
+                        <div
+                            id="device-type"
+                            class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded"
+                        ></div>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+                        <div
+                            id="breakpoint-indicator"
+                            class="bg-indigo-600 h-2.5 rounded-full transition-all duration-300"
+                            style="width: 0%"
+                        ></div>
+                    </div>
+                    <div class="flex justify-between text-xs mt-1">
+                        <span>xs</span>
+                        <span>sm</span>
+                        <span>md</span>
+                        <span>lg</span>
+                        <span>xl</span>
+                        <span>xxl</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-indigo-600 text-2xl mb-4">📱</div>
+                        <h3 class="text-xl font-semibold mb-2">Responsive Detection</h3>
+                        <p class="text-gray-600">
+                            Automatically detects viewport changes and provides current breakpoint
+                            information
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-indigo-600 text-2xl mb-4">⚡️</div>
+                        <h3 class="text-xl font-semibold mb-2">Performance First</h3>
+                        <p class="text-gray-600">
+                            Uses CSS variables for efficient viewport tracking without JavaScript
+                            polling
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-indigo-600 text-2xl mb-4">🎯</div>
+                        <h3 class="text-xl font-semibold mb-2">Simple API</h3>
+                        <p class="text-gray-600">
+                            Intuitive methods for checking viewport status and device type
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Quick Start</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-gray-900 rounded-lg p-6 mb-8">
+                        <pre class="language-javascript"><code>// Initialize the viewport detector
+const viewport = new GetViewport();
+
+// Get current breakpoint and dimensions
+console.log(viewport.getBreakpoint()); // e.g. 'md'
+console.log(viewport.getWidth() + 'x' + viewport.getHeight());
+
+// Check device type
+if (viewport.isMobile()) {
+    // Mobile-specific logic
+} else if (viewport.isTablet()) {
+    // Tablet-specific logic
+} else if (viewport.isDesktop()) {
+    // Desktop-specific logic
+}
+
+// Use with custom breakpoints
+const customViewport = new GetViewport({
+    small: 0,
+    medium: 768,
+    large: 1200
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Breakpoints</h2>
+                <div class="max-w-2xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                                    >
+                                        Breakpoint
+                                    </th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                                    >
+                                        Min Width
+                                    </th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                                    >
+                                        Category
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4">xs</td>
+                                    <td class="px-6 py-4">0px</td>
+                                    <td class="px-6 py-4">Mobile</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">sm</td>
+                                    <td class="px-6 py-4">576px</td>
+                                    <td class="px-6 py-4">Mobile</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">md</td>
+                                    <td class="px-6 py-4">768px</td>
+                                    <td class="px-6 py-4">Tablet</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">lg</td>
+                                    <td class="px-6 py-4">992px</td>
+                                    <td class="px-6 py-4">Desktop</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">xl</td>
+                                    <td class="px-6 py-4">1200px</td>
+                                    <td class="px-6 py-4">Desktop</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">xxl</td>
+                                    <td class="px-6 py-4">1400px</td>
+                                    <td class="px-6 py-4">Desktop</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-6 text-center">
+                <div class="flex justify-center space-x-6">
+                    <a
+                        href="https://github.com/peterbenoit/GetViewport"
+                        class="hover:text-indigo-400 transition"
+                        >GitHub</a
+                    >
+                    <a href="https://www.peterbenoit.com" class="hover:text-indigo-400 transition"
+                        >PeterBenoit.com</a
+                    >
+                </div>
+                <div class="mt-4 text-gray-400 text-sm">
+                    <span>License: MIT</span> •
+                    <span>Size: ~2KB</span>
+                </div>
+            </div>
+        </footer>
+        <script src="getViewport.js"></script>
+        <script src="https://peterbenoit.com/js/badge.js"></script>
+        <script id="rendered-js">
+            // Initialize viewport
+            const viewport = new GetViewport();
+
+            // Update live demo elements
+            function updateViewportDisplay() {
+                // Force viewport update before reading values
+                viewport.updateViewportVariable();
+
+                // Update text displays
+                document.getElementById('current-breakpoint').textContent =
+                    viewport.getBreakpoint();
+                document.getElementById('viewport-width').textContent = `${viewport.getWidth()}px`;
+
+                // Set device type text
+                let deviceType = 'Unknown';
+                if (viewport.isMobile()) deviceType = 'Mobile';
+                else if (viewport.isTablet()) deviceType = 'Tablet';
+                else if (viewport.isDesktop()) deviceType = 'Desktop';
+                document.getElementById('device-type').textContent = deviceType;
+
+                // Update progress indicator
+                const breakpointValue = viewport.getBreakpointValue();
+                const totalBreakpoints = Object.keys(viewport.getBreakpoints()).length;
+                const percentage = (breakpointValue / totalBreakpoints) * 100;
+                document.getElementById('breakpoint-indicator').style.width = `${percentage}%`;
+            }
+
+            // Listen to viewport changes
+            ['load', 'resize'].forEach((event) => {
+                window.addEventListener(event, () => {
+                    updateViewportDisplay();
+
+                    // Log to console
+                    console.clear();
+                    console.table({
+                        Breakpoint: viewport.getBreakpoint(),
+                        BreakpointValue: viewport.getBreakpointValue(),
+                        Width: viewport.getWidth() + 'px',
+                        Height: viewport.getHeight() + 'px',
+                        IsMobile: viewport.isMobile(),
+                        IsTablet: viewport.isTablet(),
+                        IsDesktop: viewport.isDesktop(),
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
