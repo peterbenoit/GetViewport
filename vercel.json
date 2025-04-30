@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "docs/**", "use": "@vercel/static" },
+        { "src": "getViewport.js", "use": "@vercel/static" }
+    ],
+    "routes": [
+        { "src": "/getViewport.js", "dest": "/getViewport.js" },
+        { "src": "/(.*)", "dest": "/docs/$1" },
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/docs/index.html" }
+    ]
+}

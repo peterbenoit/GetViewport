@@ -2,17 +2,51 @@
 <html lang="en" class="bg-gray-50">
     <head>
         <meta charset="UTF-8" />
-        <title>GetViewport - Lightweight Responsive Breakpoint Detection Library</title>
+        <title>GetViewport - Lightweight JavaScript Breakpoint Detection Library</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
             name="description"
-            content="A lightweight JavaScript utility for responsive breakpoint detection that dynamically injects CSS breakpoints and allows JavaScript to check the current viewport size."
+            content="A lightweight JavaScript utility for responsive breakpoint detection that dynamically injects CSS breakpoints and allows JavaScript to check the current viewport size without polling."
         />
         <meta
             name="keywords"
-            content="viewport, breakpoint, detection, responsive, javascript, library"
+            content="viewport, breakpoint, detection, responsive, javascript, library, CSS variables, modern web, performance"
         />
         <meta name="author" content="Pete Benoit" />
+
+        <!-- Open Graph / Social Media Meta Tags -->
+        <meta
+            property="og:title"
+            content="GetViewport - Lightweight JavaScript Breakpoint Detection"
+        />
+        <meta
+            property="og:description"
+            content="A lightweight JavaScript utility for responsive breakpoint detection using CSS variables."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://getviewport.vercel.app" />
+        <meta property="og:image" content="https://getviewport.vercel.app/social-preview.png" />
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="GetViewport - Lightweight JavaScript Breakpoint Detection"
+        />
+        <meta
+            name="twitter:description"
+            content="A lightweight JavaScript utility for responsive breakpoint detection using CSS variables."
+        />
+        <meta name="twitter:image" content="https://getviewport.vercel.app/social-preview.png" />
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#4f46e5" />
+        <meta name="theme-color" content="#4f46e5" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
@@ -21,6 +55,9 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
         />
         <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Preload getViewport.js -->
+        <link rel="preload" href="getViewport.js" as="script" />
     </head>
 
     <body>
