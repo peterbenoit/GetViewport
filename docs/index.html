@@ -1,177 +1,146 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-gray-50">
-    <head>
-        <meta charset="UTF-8" />
-        <title>GetViewport - Lightweight JavaScript Breakpoint Detection Library</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-            name="description"
-            content="A lightweight JavaScript utility for responsive breakpoint detection that dynamically injects CSS breakpoints and allows JavaScript to check the current viewport size without polling."
-        />
-        <meta
-            name="keywords"
-            content="viewport, breakpoint, detection, responsive, javascript, library, CSS variables, modern web, performance"
-        />
-        <meta name="author" content="Peter Benoit" />
 
-        <!-- Open Graph / Social Media Meta Tags -->
-        <meta
-            property="og:title"
-            content="GetViewport - Lightweight JavaScript Breakpoint Detection"
-        />
-        <meta
-            property="og:description"
-            content="A lightweight JavaScript utility for responsive breakpoint detection using CSS variables."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://getviewport.vercel.app" />
-        <meta property="og:image" content="https://getviewport.vercel.app/social-preview.png" />
+<head>
+	<meta charset="UTF-8" />
+	<title>GetViewport - Lightweight JavaScript Breakpoint Detection Library</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description"
+		content="A lightweight JavaScript utility for responsive breakpoint detection that dynamically injects CSS breakpoints and allows JavaScript to check the current viewport size without polling." />
+	<meta name="keywords"
+		content="viewport, breakpoint, detection, responsive, javascript, library, CSS variables, modern web, performance" />
+	<meta name="author" content="Peter Benoit" />
 
-        <!-- Twitter Card data -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-            name="twitter:title"
-            content="GetViewport - Lightweight JavaScript Breakpoint Detection"
-        />
-        <meta
-            name="twitter:description"
-            content="A lightweight JavaScript utility for responsive breakpoint detection using CSS variables."
-        />
-        <meta name="twitter:image" content="https://getviewport.vercel.app/social-preview.png" />
+	<!-- Open Graph / Social Media Meta Tags -->
+	<meta property="og:title" content="GetViewport - Lightweight JavaScript Breakpoint Detection" />
+	<meta property="og:description"
+		content="A lightweight JavaScript utility for responsive breakpoint detection using CSS variables." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://getviewport.vercel.app" />
+	<meta property="og:image" content="https://getviewport.vercel.app/social-preview.png" />
 
-        <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#4f46e5" />
-        <meta name="theme-color" content="#4f46e5" />
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="GetViewport - Lightweight JavaScript Breakpoint Detection" />
+	<meta name="twitter:description"
+		content="A lightweight JavaScript utility for responsive breakpoint detection using CSS variables." />
+	<meta name="twitter:image" content="https://getviewport.vercel.app/social-preview.png" />
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
-        />
-        <script src="https://cdn.tailwindcss.com"></script>
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+	<meta name="msapplication-TileColor" content="#4f46e5" />
+	<meta name="theme-color" content="#4f46e5" />
 
-        <!-- Preload getViewport.js -->
-        <link rel="preload" href="getViewport.js" as="script" />
-    </head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+	<script src="https://cdn.tailwindcss.com"></script>
 
-    <body>
-		<a href="https://www.uiguy.dev" rel="author" class="seo-author-link">Peter Benoit</a>
-        <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-            <div class="container mx-auto px-6 py-16">
-                <div class="max-w-3xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">GetViewport</h1>
-                    <p class="text-xl md:text-2xl mb-8">
-                        A lightweight, performant viewport detection library for modern web
-                        applications
-                    </p>
-                    <div class="space-x-4">
-                        <a
-                            href="https://github.com/peterbenoit/GetViewport"
-                            class="bg-white text-indigo-600 px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
-                            aria-label="View on GitHub"
-                        >
-                            GitHub
-                        </a>
-                        <a
-                            href="https://github.com/peterbenoit/GetViewport#readme"
-                            class="bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
-                            aria-label="View documentation"
-                        >
-                            Documentation
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </header>
+	<!-- Preload getViewport.js -->
+	<link rel="preload" href="getViewport.js" as="script" />
+</head>
 
-        <!-- Live Demo Section -->
-        <section class="py-8 bg-white border-b border-gray-200">
-            <div class="container mx-auto px-6">
-                <div class="max-w-md mx-auto bg-gray-50 p-4 rounded-lg shadow-sm">
-                    <h3 class="text-lg font-medium text-center mb-3">Live Viewport Demo</h3>
-                    <div class="flex items-center justify-between mb-2">
-                        <div>Current breakpoint:</div>
-                        <div
-                            id="current-breakpoint"
-                            class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded"
-                        ></div>
-                    </div>
-                    <div class="flex items-center justify-between mb-2">
-                        <div>Width:</div>
-                        <div
-                            id="viewport-width"
-                            class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded"
-                        ></div>
-                    </div>
-                    <div class="flex items-center justify-between mb-2">
-                        <div>Type:</div>
-                        <div
-                            id="device-type"
-                            class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded"
-                        ></div>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
-                        <div
-                            id="breakpoint-indicator"
-                            class="bg-indigo-600 h-2.5 rounded-full transition-all duration-300"
-                            style="width: 0%"
-                        ></div>
-                    </div>
-                    <div class="flex justify-between text-xs mt-1">
-                        <span>xs</span>
-                        <span>sm</span>
-                        <span>md</span>
-                        <span>lg</span>
-                        <span>xl</span>
-                        <span>xxl</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<body>
+	<a href="https://www.uiguy.dev" rel="author" class="seo-author-link">Peter Benoit</a>
+	<header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+		<div class="container mx-auto px-6 py-16">
+			<div class="max-w-3xl mx-auto text-center">
+				<h1 class="text-4xl md:text-6xl font-bold mb-6">GetViewport</h1>
+				<p class="text-xl md:text-2xl mb-8">
+					A lightweight, performant viewport detection library for modern web
+					applications
+				</p>
+				<div class="space-x-4">
+					<a href="https://github.com/peterbenoit/GetViewport"
+						class="bg-white text-indigo-600 px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
+						aria-label="View on GitHub">
+						GitHub
+					</a>
+					<a href="https://github.com/peterbenoit/GetViewport#readme"
+						class="bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
+						aria-label="View documentation">
+						Documentation
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
 
-        <section class="py-16">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <div class="text-indigo-600 text-2xl mb-4">📱</div>
-                        <h3 class="text-xl font-semibold mb-2">Responsive Detection</h3>
-                        <p class="text-gray-600">
-                            Automatically detects viewport changes and provides current breakpoint
-                            information
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <div class="text-indigo-600 text-2xl mb-4">⚡️</div>
-                        <h3 class="text-xl font-semibold mb-2">Performance First</h3>
-                        <p class="text-gray-600">
-                            Uses CSS variables for efficient viewport tracking without JavaScript
-                            polling
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <div class="text-indigo-600 text-2xl mb-4">🎯</div>
-                        <h3 class="text-xl font-semibold mb-2">Simple API</h3>
-                        <p class="text-gray-600">
-                            Intuitive methods for checking viewport status and device type
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+	<!-- Live Demo Section -->
+	<section class="py-8 bg-white border-b border-gray-200">
+		<div class="container mx-auto px-6">
+			<div class="max-w-md mx-auto bg-gray-50 p-4 rounded-lg shadow-sm">
+				<h3 class="text-lg font-medium text-center mb-3">Live Viewport Demo</h3>
+				<div class="flex items-center justify-between mb-2">
+					<div>Current breakpoint:</div>
+					<div id="current-breakpoint" class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded">
+					</div>
+				</div>
+				<div class="flex items-center justify-between mb-2">
+					<div>Width:</div>
+					<div id="viewport-width" class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded"></div>
+				</div>
+				<div class="flex items-center justify-between mb-2">
+					<div>Type:</div>
+					<div id="device-type" class="font-mono bg-indigo-100 text-indigo-800 px-3 py-1 rounded"></div>
+				</div>
+				<div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+					<div id="breakpoint-indicator" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-300"
+						style="width: 0%"></div>
+				</div>
+				<div class="flex justify-between text-xs mt-1">
+					<span>xs</span>
+					<span>sm</span>
+					<span>md</span>
+					<span>lg</span>
+					<span>xl</span>
+					<span>xxl</span>
+				</div>
+			</div>
+		</div>
+	</section>
 
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Quick Start</h2>
-                <div class="max-w-3xl mx-auto">
-                    <div class="bg-gray-900 rounded-lg p-6 mb-8">
-                        <pre class="language-javascript"><code>// Initialize the viewport detector
+	<section class="py-16">
+		<div class="container mx-auto px-6">
+			<h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="bg-white p-6 rounded-lg shadow-md">
+					<div class="text-indigo-600 text-2xl mb-4">📱</div>
+					<h3 class="text-xl font-semibold mb-2">Responsive Detection</h3>
+					<p class="text-gray-600">
+						Automatically detects viewport changes and provides current breakpoint
+						information
+					</p>
+				</div>
+				<div class="bg-white p-6 rounded-lg shadow-md">
+					<div class="text-indigo-600 text-2xl mb-4">⚡️</div>
+					<h3 class="text-xl font-semibold mb-2">Performance First</h3>
+					<p class="text-gray-600">
+						Uses CSS variables for efficient viewport tracking without JavaScript
+						polling
+					</p>
+				</div>
+				<div class="bg-white p-6 rounded-lg shadow-md">
+					<div class="text-indigo-600 text-2xl mb-4">🎯</div>
+					<h3 class="text-xl font-semibold mb-2">Simple API</h3>
+					<p class="text-gray-600">
+						Intuitive methods for checking viewport status and device type
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-6">
+			<h2 class="text-3xl font-bold text-center mb-12">Quick Start</h2>
+			<div class="max-w-3xl mx-auto">
+				<div class="bg-gray-900 rounded-lg p-6 mb-8">
+					<pre class="language-javascript"><code>// Initialize the viewport detector
 const viewport = new GetViewport();
 
 // Get current breakpoint and dimensions
@@ -193,176 +162,144 @@ const customViewport = new GetViewport({
     medium: 768,
     large: 1200
 });</code></pre>
-                    </div>
-                </div>
-            </div>
-        </section>
+				</div>
+			</div>
+		</div>
+	</section>
 
-        <section class="py-16 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Breakpoints</h2>
-                <div class="max-w-2xl mx-auto">
-                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <table class="w-full">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Breakpoint
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Min Width
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
-                                    >
-                                        Category
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4">xs</td>
-                                    <td class="px-6 py-4">0px</td>
-                                    <td class="px-6 py-4">Mobile</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4">sm</td>
-                                    <td class="px-6 py-4">576px</td>
-                                    <td class="px-6 py-4">Mobile</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4">md</td>
-                                    <td class="px-6 py-4">768px</td>
-                                    <td class="px-6 py-4">Tablet</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4">lg</td>
-                                    <td class="px-6 py-4">992px</td>
-                                    <td class="px-6 py-4">Desktop</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4">xl</td>
-                                    <td class="px-6 py-4">1200px</td>
-                                    <td class="px-6 py-4">Desktop</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4">xxl</td>
-                                    <td class="px-6 py-4">1400px</td>
-                                    <td class="px-6 py-4">Desktop</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-6">
+			<h2 class="text-3xl font-bold text-center mb-12">Breakpoints</h2>
+			<div class="max-w-2xl mx-auto">
+				<div class="bg-white rounded-lg shadow-md overflow-hidden">
+					<table class="w-full">
+						<thead class="bg-gray-50">
+							<tr>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+									Breakpoint
+								</th>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+									Min Width
+								</th>
+								<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+									Category
+								</th>
+							</tr>
+						</thead>
+						<tbody class="divide-y divide-gray-200">
+							<tr>
+								<td class="px-6 py-4">xs</td>
+								<td class="px-6 py-4">0px</td>
+								<td class="px-6 py-4">Mobile</td>
+							</tr>
+							<tr>
+								<td class="px-6 py-4">sm</td>
+								<td class="px-6 py-4">576px</td>
+								<td class="px-6 py-4">Mobile</td>
+							</tr>
+							<tr>
+								<td class="px-6 py-4">md</td>
+								<td class="px-6 py-4">768px</td>
+								<td class="px-6 py-4">Tablet</td>
+							</tr>
+							<tr>
+								<td class="px-6 py-4">lg</td>
+								<td class="px-6 py-4">992px</td>
+								<td class="px-6 py-4">Desktop</td>
+							</tr>
+							<tr>
+								<td class="px-6 py-4">xl</td>
+								<td class="px-6 py-4">1200px</td>
+								<td class="px-6 py-4">Desktop</td>
+							</tr>
+							<tr>
+								<td class="px-6 py-4">xxl</td>
+								<td class="px-6 py-4">1400px</td>
+								<td class="px-6 py-4">Desktop</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
 
-        <footer class="bg-gray-900 text-white py-12">
-            <div class="container mx-auto px-1 text-center">
-                <div class="flex justify-center space-x-3 items-center">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        x="0px"
-                        y="0px"
-                        width="20"
-                        height="20"
-                        viewBox="0,0,256,256"
-                        style="fill: #ffffff"
-                    >
-                        <g
-                            fill="#ffffff"
-                            fill-rule="nonzero"
-                            stroke="none"
-                            stroke-width="1"
-                            stroke-linecap="butt"
-                            stroke-linejoin="miter"
-                            stroke-miterlimit="10"
-                            stroke-dasharray=""
-                            stroke-dashoffset="0"
-                            font-family="none"
-                            font-weight="none"
-                            font-size="none"
-                            text-anchor="none"
-                            style="mix-blend-mode: normal"
-                        >
-                            <g transform="scale(5.12,5.12)">
-                                <path
-                                    d="M17.791,46.836c0.711,-0.306 1.209,-1.013 1.209,-1.836v-5.4c0,-0.197 0.016,-0.402 0.041,-0.61c-0.014,0.004 -0.027,0.007 -0.041,0.01c0,0 -3,0 -3.6,0c-1.5,0 -2.8,-0.6 -3.4,-1.8c-0.7,-1.3 -1,-3.5 -2.8,-4.7c-0.3,-0.2 -0.1,-0.5 0.5,-0.5c0.6,0.1 1.9,0.9 2.7,2c0.9,1.1 1.8,2 3.4,2c2.487,0 3.82,-0.125 4.622,-0.555c0.934,-1.389 2.227,-2.445 3.578,-2.445v-0.025c-5.668,-0.182 -9.289,-2.066 -10.975,-4.975c-3.665,0.042 -6.856,0.405 -8.677,0.707c-0.058,-0.327 -0.108,-0.656 -0.151,-0.987c1.797,-0.296 4.843,-0.647 8.345,-0.714c-0.112,-0.276 -0.209,-0.559 -0.291,-0.849c-3.511,-0.178 -6.541,-0.039 -8.187,0.097c-0.02,-0.332 -0.047,-0.663 -0.051,-0.999c1.649,-0.135 4.597,-0.27 8.018,-0.111c-0.079,-0.5 -0.13,-1.011 -0.13,-1.543c0,-1.7 0.6,-3.5 1.7,-5c-0.5,-1.7 -1.2,-5.3 0.2,-6.6c2.7,0 4.6,1.3 5.5,2.1c1.699,-0.701 3.599,-1.101 5.699,-1.101c2.1,0 4,0.4 5.6,1.1c0.9,-0.8 2.8,-2.1 5.5,-2.1c1.5,1.4 0.7,5 0.2,6.6c1.1,1.5 1.7,3.2 1.6,5c0,0.484 -0.045,0.951 -0.11,1.409c3.499,-0.172 6.527,-0.034 8.204,0.102c-0.002,0.337 -0.033,0.666 -0.051,0.999c-1.671,-0.138 -4.775,-0.28 -8.359,-0.089c-0.089,0.336 -0.197,0.663 -0.325,0.98c3.546,0.046 6.665,0.389 8.548,0.689c-0.043,0.332 -0.093,0.661 -0.151,0.987c-1.912,-0.306 -5.171,-0.664 -8.879,-0.682c-1.665,2.878 -5.22,4.755 -10.777,4.974v0.031c2.6,0 5,3.9 5,6.6v5.4c0,0.823 0.498,1.53 1.209,1.836c9.161,-3.032 15.791,-11.672 15.791,-21.836c0,-12.682 -10.317,-23 -23,-23c-12.683,0 -23,10.318 -23,23c0,10.164 6.63,18.804 15.791,21.836z"
-                                ></path>
-                            </g>
-                        </g>
-                    </svg>
-                    <a
-                        href="https://github.com/peterbenoit/GetViewport"
-                        class="hover:text-indigo-400 transition"
-                        >GitHub</a
-                    >
-                </div>
-                <div class="mt-4 text-gray-400 text-sm">
-                    <span>License: MIT</span> •
-                    <span>Size: ~2KB</span>
-					<span>• Author: </span>
-					<a
-						href="https://www.uiguy.dev"
-						class="text-indigo-400 hover:underline"
-						rel="author"
-						>Peter Benoit</a
-					>
-                </div>
-            </div>
-        </footer>
-        <script src="getViewport.js"></script>
-        <script src="https://peterbenoit.com/js/badge.js" data-mode="tracker"></script>
-        <script id="rendered-js">
-            // Initialize viewport
-            const viewport = new GetViewport();
+	<footer class="bg-gray-900 text-white py-12">
+		<div class="container mx-auto px-1 text-center">
+			<div class="flex justify-center space-x-3 items-center">
+				<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256"
+					style="fill: #ffffff">
+					<g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+						stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+						font-family="none" font-weight="none" font-size="none" text-anchor="none"
+						style="mix-blend-mode: normal">
+						<g transform="scale(5.12,5.12)">
+							<path
+								d="M17.791,46.836c0.711,-0.306 1.209,-1.013 1.209,-1.836v-5.4c0,-0.197 0.016,-0.402 0.041,-0.61c-0.014,0.004 -0.027,0.007 -0.041,0.01c0,0 -3,0 -3.6,0c-1.5,0 -2.8,-0.6 -3.4,-1.8c-0.7,-1.3 -1,-3.5 -2.8,-4.7c-0.3,-0.2 -0.1,-0.5 0.5,-0.5c0.6,0.1 1.9,0.9 2.7,2c0.9,1.1 1.8,2 3.4,2c2.487,0 3.82,-0.125 4.622,-0.555c0.934,-1.389 2.227,-2.445 3.578,-2.445v-0.025c-5.668,-0.182 -9.289,-2.066 -10.975,-4.975c-3.665,0.042 -6.856,0.405 -8.677,0.707c-0.058,-0.327 -0.108,-0.656 -0.151,-0.987c1.797,-0.296 4.843,-0.647 8.345,-0.714c-0.112,-0.276 -0.209,-0.559 -0.291,-0.849c-3.511,-0.178 -6.541,-0.039 -8.187,0.097c-0.02,-0.332 -0.047,-0.663 -0.051,-0.999c1.649,-0.135 4.597,-0.27 8.018,-0.111c-0.079,-0.5 -0.13,-1.011 -0.13,-1.543c0,-1.7 0.6,-3.5 1.7,-5c-0.5,-1.7 -1.2,-5.3 0.2,-6.6c2.7,0 4.6,1.3 5.5,2.1c1.699,-0.701 3.599,-1.101 5.699,-1.101c2.1,0 4,0.4 5.6,1.1c0.9,-0.8 2.8,-2.1 5.5,-2.1c1.5,1.4 0.7,5 0.2,6.6c1.1,1.5 1.7,3.2 1.6,5c0,0.484 -0.045,0.951 -0.11,1.409c3.499,-0.172 6.527,-0.034 8.204,0.102c-0.002,0.337 -0.033,0.666 -0.051,0.999c-1.671,-0.138 -4.775,-0.28 -8.359,-0.089c-0.089,0.336 -0.197,0.663 -0.325,0.98c3.546,0.046 6.665,0.389 8.548,0.689c-0.043,0.332 -0.093,0.661 -0.151,0.987c-1.912,-0.306 -5.171,-0.664 -8.879,-0.682c-1.665,2.878 -5.22,4.755 -10.777,4.974v0.031c2.6,0 5,3.9 5,6.6v5.4c0,0.823 0.498,1.53 1.209,1.836c9.161,-3.032 15.791,-11.672 15.791,-21.836c0,-12.682 -10.317,-23 -23,-23c-12.683,0 -23,10.318 -23,23c0,10.164 6.63,18.804 15.791,21.836z">
+							</path>
+						</g>
+					</g>
+				</svg>
+				<a href="https://github.com/peterbenoit/GetViewport" class="hover:text-indigo-400 transition">GitHub</a>
+			</div>
+			<div class="mt-4 text-gray-400 text-sm">
+				<span>License: MIT</span> •
+				<span>Size: ~2KB</span>
+				<span>• Author: </span>
+				<a href="https://www.peterbenoit.com" class="text-indigo-400 hover:underline" rel="author">Peter
+					Benoit</a>
+			</div>
+		</div>
+	</footer>
+	<script src="getViewport.js"></script>
+	<script src="https://peterbenoit.com/js/badge.js" data-mode="tracker"></script>
+	<script id="rendered-js">
+		// Initialize viewport
+		const viewport = new GetViewport();
 
-            // Update live demo elements
-            function updateViewportDisplay() {
-                // Force viewport update before reading values
-                viewport.updateViewportVariable();
+		// Update live demo elements
+		function updateViewportDisplay() {
+			// Force viewport update before reading values
+			viewport.updateViewportVariable();
 
-                // Update text displays
-                document.getElementById('current-breakpoint').textContent =
-                    viewport.getBreakpoint();
-                document.getElementById('viewport-width').textContent = `${viewport.getWidth()}px`;
+			// Update text displays
+			document.getElementById('current-breakpoint').textContent =
+				viewport.getBreakpoint();
+			document.getElementById('viewport-width').textContent = `${viewport.getWidth()}px`;
 
-                // Set device type text
-                let deviceType = 'Unknown';
-                if (viewport.isMobile()) deviceType = 'Mobile';
-                else if (viewport.isTablet()) deviceType = 'Tablet';
-                else if (viewport.isDesktop()) deviceType = 'Desktop';
-                document.getElementById('device-type').textContent = deviceType;
+			// Set device type text
+			let deviceType = 'Unknown';
+			if (viewport.isMobile()) deviceType = 'Mobile';
+			else if (viewport.isTablet()) deviceType = 'Tablet';
+			else if (viewport.isDesktop()) deviceType = 'Desktop';
+			document.getElementById('device-type').textContent = deviceType;
 
-                // Update progress indicator
-                const breakpointValue = viewport.getBreakpointValue();
-                const totalBreakpoints = Object.keys(viewport.getBreakpoints()).length;
-                const percentage = (breakpointValue / totalBreakpoints) * 100;
-                document.getElementById('breakpoint-indicator').style.width = `${percentage}%`;
-            }
+			// Update progress indicator
+			const breakpointValue = viewport.getBreakpointValue();
+			const totalBreakpoints = Object.keys(viewport.getBreakpoints()).length;
+			const percentage = (breakpointValue / totalBreakpoints) * 100;
+			document.getElementById('breakpoint-indicator').style.width = `${percentage}%`;
+		}
 
-            // Listen to viewport changes
-            ['load', 'resize'].forEach((event) => {
-                window.addEventListener(event, () => {
-                    updateViewportDisplay();
+		// Listen to viewport changes
+		['load', 'resize'].forEach((event) => {
+			window.addEventListener(event, () => {
+				updateViewportDisplay();
 
-                    // Log to console
-                    console.clear();
-                    console.table({
-                        Breakpoint: viewport.getBreakpoint(),
-                        BreakpointValue: viewport.getBreakpointValue(),
-                        Width: viewport.getWidth() + 'px',
-                        Height: viewport.getHeight() + 'px',
-                        IsMobile: viewport.isMobile(),
-                        IsTablet: viewport.isTablet(),
-                        IsDesktop: viewport.isDesktop(),
-                    });
-                });
-            });
-        </script>
-    </body>
+				// Log to console
+				console.clear();
+				console.table({
+					Breakpoint: viewport.getBreakpoint(),
+					BreakpointValue: viewport.getBreakpointValue(),
+					Width: viewport.getWidth() + 'px',
+					Height: viewport.getHeight() + 'px',
+					IsMobile: viewport.isMobile(),
+					IsTablet: viewport.isTablet(),
+					IsDesktop: viewport.isDesktop(),
+				});
+			});
+		});
+	</script>
+</body>
+
 </html>
