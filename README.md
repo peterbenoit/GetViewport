@@ -11,6 +11,28 @@
 
 ## Installation
 
+### npm
+
+```bash
+npm install get-viewport
+```
+
+```javascript
+const GetViewport = require('get-viewport');
+// or with a bundler supporting ES modules:
+import GetViewport from 'get-viewport';
+```
+
+### CDN
+
+```html
+<script src="https://unpkg.com/get-viewport/getViewport.js"></script>
+```
+
+`GetViewport` is then available as a global on `window`.
+
+### Manual
+
 1. Clone the repository:
 
     ```bash
@@ -18,7 +40,7 @@
     cd GetViewport
     ```
 
-2. Include the `getViewport.js` file in your project:
+2. Include the file in your project:
     ```html
     <script src="getViewport.js"></script>
     ```
