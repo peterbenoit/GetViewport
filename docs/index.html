@@ -37,6 +37,8 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
 	<script src="https://cdn.tailwindcss.com"></script>
 
@@ -59,6 +61,11 @@
 						class="bg-white text-indigo-600 px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
 						aria-label="View on GitHub">
 						GitHub
+					</a>
+					<a href="https://www.npmjs.com/package/get-viewport"
+						class="bg-red-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
+						aria-label="View on npm">
+						npm
 					</a>
 					<a href="https://github.com/peterbenoit/GetViewport#readme"
 						class="bg-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition"
@@ -136,6 +143,67 @@
 	</section>
 
 	<section class="py-16 bg-white">
+		<div class="container mx-auto px-6">
+			<h2 class="text-3xl font-bold text-center mb-12">Installation</h2>
+			<div class="max-w-3xl mx-auto space-y-10">
+
+				<!-- npm -->
+				<div>
+					<h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+						<span class="bg-red-100 text-red-700 text-xs font-mono px-2 py-0.5 rounded">npm</span>
+						Install via npm
+					</h3>
+					<div class="bg-gray-900 rounded-lg p-6 mb-3">
+						<pre class="language-bash"><code>npm install get-viewport</code></pre>
+					</div>
+					<div class="bg-gray-900 rounded-lg p-6">
+						<pre class="language-javascript"><code>// CommonJS
+const GetViewport = require('get-viewport');
+
+// ES Module (with a bundler)
+import GetViewport from 'get-viewport';
+
+const viewport = new GetViewport();
+console.log(viewport.getBreakpoint());</code></pre>
+					</div>
+				</div>
+
+				<!-- CDN -->
+				<div>
+					<h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+						<span class="bg-blue-100 text-blue-700 text-xs font-mono px-2 py-0.5 rounded">CDN</span>
+						Include via CDN (unpkg)
+					</h3>
+					<div class="bg-gray-900 rounded-lg p-6">
+						<pre class="language-html"><code>&lt;script src="https://unpkg.com/get-viewport/getViewport.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const viewport = new GetViewport();
+  console.log(viewport.getBreakpoint());
+&lt;/script&gt;</code></pre>
+					</div>
+					<p class="text-gray-600 text-sm mt-2">Adds <code class="bg-gray-100 px-1 rounded text-indigo-700 font-mono">window.GetViewport</code> as a global — no bundler required.</p>
+				</div>
+
+				<!-- Manual -->
+				<div>
+					<h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
+						<span class="bg-gray-100 text-gray-700 text-xs font-mono px-2 py-0.5 rounded">Manual</span>
+						Download and host yourself
+					</h3>
+					<div class="bg-gray-900 rounded-lg p-6">
+						<pre class="language-html"><code>&lt;script src="/path/to/getViewport.js"&gt;&lt;/script&gt;</code></pre>
+					</div>
+					<p class="text-gray-600 text-sm mt-2">
+						<a href="https://github.com/peterbenoit/GetViewport/blob/main/getViewport.js"
+							class="text-indigo-600 hover:underline">Download getViewport.js</a> from GitHub and serve it with your project.
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-gray-50">
 		<div class="container mx-auto px-6">
 			<h2 class="text-3xl font-bold text-center mb-12">Quick Start</h2>
 			<div class="max-w-3xl mx-auto">
