@@ -1,5 +1,5 @@
 {
-	"name": "get-viewport",
+	"name": "@peterbenoit/get-viewport",
 	"version": "1.1.2",
 	"description": "A lightweight JavaScript utility for responsive breakpoint detection.",
 	"main": "getViewport.js",
@@ -26,7 +26,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/peterbenoit/GetViewport.git"
+		"url": "git+https://github.com/peterbenoit/GetViewport.git"
 	},
 	"bugs": {
 		"url": "https://github.com/peterbenoit/GetViewport/issues"

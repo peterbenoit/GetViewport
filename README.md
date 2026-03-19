@@ -14,19 +14,19 @@
 ### npm
 
 ```bash
-npm install get-viewport
+npm install @peterbenoit/get-viewport
 ```
 
 ```javascript
-const GetViewport = require('get-viewport');
+const GetViewport = require('@peterbenoit/get-viewport');
 // or with a bundler supporting ES modules:
-import GetViewport from 'get-viewport';
+import GetViewport from '@peterbenoit/get-viewport';
 ```
 
 ### CDN
 
 ```html
-<script src="https://unpkg.com/get-viewport/getViewport.js"></script>
+<script src="https://unpkg.com/@peterbenoit/get-viewport/getViewport.js"></script>
 ```
 
 `GetViewport` is then available as a global on `window`.
